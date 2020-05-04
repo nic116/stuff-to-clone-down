@@ -55,13 +55,12 @@ Any implemented feature that negatively effected the performance of the applicat
 
 
 
-Below shows the inital Scrum plan for this project, this was agreed apon by each group member and includes the start and finish dates of each of sprint. 
-
-![Planning]
+Below shows the inital Scrum plan for this project, this was agreed apon by each group member and includes the start and finish dates of each of sprint.
+![Group-Trello-1](https://user-images.githubusercontent.com/61239212/80955909-0b58db80-8df8-11ea-8e24-bd4179dec16b.png)
 
 Throughout the course of the project we also had daily standups where we would inform eachother what we had been done, review what was left to do and make a suitable plan of action for that day, filling in the tasks we had discussed under each sprint as well as assigining the task to invdividuals.
 
-![Planning]
+![Planning]########################   Add last trello
 
 
 
@@ -72,14 +71,12 @@ Throughout the course of the project we also had daily standups where we would i
 
 <a name="Technology"></a>
 ## Technologies Used
-![TechnologiesUsed](https://github.com/Ezzmo/Petclinic/blob/develop/Documentation/TechnologiesUsed.png)
-#############################
+![Group-Tech-used](https://user-images.githubusercontent.com/61239212/80956449-2c6dfc00-8df9-11ea-89ff-aeed05e1f977.png)
 
-#############################
 
 <a name="Environments"></a>
 ## Environments
-In this project we used multiple environments and tools to test build and deploy the applications, the tools are listed below:
+In this project we used multiple environments and tools to test, build and deploy the applications, the tools are listed below:
 
 - Terraform
 
@@ -105,34 +102,18 @@ Our Kubernetes cluster was created using Terraform and this was done in the test
 ***** Setup files can be found in the following dir -> terraform/kubernetes-cluster
 
 <a name="Testing"></a>
+
+######################################### Edit this for our case once the testing is done ########################################################
 ## Testing
 
-Testing was conducted using a combination of **Karama, Jasmine, Angular, NodeJs and Maven** the testing files and location had already been configured for the application so our only responsibility was to initate the tests. Testing was a tedius process for us during this project as we had not dealt with any of the technology before, however this just meant we had to allocate additional time to learning and understanding this new technology. 
 
-### Frontend Testing
-Testing was conducted simply by using the command ```ng test``` this would run the tests that were pre defined and show us how many had passed or failed. However tests were displayed using the browser **CHROME**, requring us to open a new weeb page and run a dubg to recieve the full list of tests. In order for tests to be applicable for Jenkins we had to slighlt tweak the configuration files. 
+Things to add to the test sectrion:
+1. backent testing
+2. frontend testing
+3. And requirements for both of them
+4. Add coverage
+#################################################################################
 
-**Changes Made**
-```
-Install >>> npm install phantomjs
-
-plugins >>> require('karma-phantomjs-launcher'), require('karma-coverage')
-
-browsers: ['Chrome'] >>> ['PhantomJS']
-
-Coverage In Terminal >>> coverageReporter:{ type:'text'}, 
-
-reporters : ['progress', 'kjhtml'] >>> ['progress', 'kjhtml','coverage']
-
-```
-After this was done we were able to get the results of the tests printed in the terminal as well as the coverage report for all of the tests that were conducted. When wanting to conduct the tests in Jenkins you will also need to change the **Karma.conf.js** file so that the terminal dosent hang by changing ```singleRun: false >>> true```  [Test Coverage In Terminal](https://github.com/Ezzmo/Petclinic/blob/master/Documentation/TerminalTesting.PNG)
-
-![Testing](https://github.com/Ezzmo/Petclinic/blob/master/Documentation/Testing.PNG)
-
-### Backend Testing
-Tesing the backend was relativly simple, all that was required was to install **Maven** and run the simple command ```mvn test``` this would go through all of the test files and output weather or not the tests had passed or failed. 
-
-![Testing](https://github.com/Ezzmo/Petclinic/blob/master/Documentation/Testing_Backend.PNG)
 
 
 <a name="pipeline"></a>
@@ -144,20 +125,30 @@ Tesing the backend was relativly simple, all that was required was to install **
 
 We used Terraform to create the infrastructure (VM's and Kubernetes Cluster) after this process we used Ansible to go into the VM's we  created and install all the applications we would need for the project to work e.g Jenkins, Java, Python, Docker, Maven. After running Ansible we then trigger the build process which is running on our Jenkins CI/CD server, this tests the application and if the tests pass the deployment stage is triggered and the application is deployed to the Kubernetes Cluster on Azure. See video Below for more info.
 
-[![pipeline_video](/Documentation/video.jpg)](https://youtu.be/jcAL9zQ6r8Q)
+
 
 
 <a name="Costs"></a>
 ## Costs
-We used Pricing Calculator to configure and estimate the monthly running costs for the AWS products that we need to automate the deployment of the application. We decided that we need 2 VMs and the AWS Kubernetes Service, we used eu-west-2 as region because that’s what we found available according to the subscription that we were using and we came to the conclusion that we would have an operational expenditure of £160.17, paying only for what we are using with no upfront costs for the services.
-![Costs](https://github.com/Ezzmo/Petclinic/blob/develop/Documentation/Costs.PNG)
+We used Pricing Calculator to configure and estimate the monthly running costs for the AWS products that we need to automate the deployment of the application. We decided that we need 2 VMs and the AWS Kubernetes Service, we used eu-west-2 as region because that’s what we found available according to the subscription that we were using and we came to the conclusion that we would have an operational expenditure of £32.82 plus 0.01USD per hour to run terraform, paying only for what we are using with no upfront costs for the services.
+![Group-Cost](https://user-images.githubusercontent.com/61239212/80957894-fb42fb00-8dfb-11ea-9012-7492fdb57d4d.png)
+
 
 
 <a name="Conclusion"></a>
 ## Project Conclusion
-* We are happy with what we managed to accomplish in such a short time, even at the beginning it was quite difficult to understand the application, considering that the backend use Java and the frontend use AngularJS, which we weren’t familiar with. We faced problems, like not being able to link the backend and the frontend while applying Kubernetes or having issues while testing the application, but we supported each other as a team, we didn’t give up until we managed to do everything we planned and we also had Jay pointing us to the right direction.
 
-<a name="FutureWork"></a>
-## Future Work
-* What we could do more is having a more specified cost analysis, or even adding graphics to the final presentation. # stuff-to-clone-down
+What went well:
+* Using terraform to create the infrastructure went swiftly without many issues. 
+* Team meetings were helpful and orientating.
+* ADD SOMETHING ELSE
+
+What went wrong:
+* Running the frontend application came with some issues that requiered the help of our instructor.
+* Creating pods for the cluster took some extra time.
+
+Future improvements:
+* A more detail examination of the costs.
+* ADD SOMETHING ELSE. 
+
 
